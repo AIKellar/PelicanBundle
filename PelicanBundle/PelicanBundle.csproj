@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200415144613_Initial.cs" />
+    <Compile Remove="Migrations\20200415144613_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200416134631_Orders.cs" />
+    <Compile Remove="Migrations\20200416134631_Orders.Designer.cs" />
+    <Compile Remove="Migrations\20200416135411_ShippedOrders.cs" />
+    <Compile Remove="Migrations\20200416135411_ShippedOrders.Designer.cs" />
+    <Compile Remove="Migrations\20200416154146_Identity.cs" />
+    <Compile Remove="Migrations\20200416154146_Identity.Designer.cs" />
+    <Compile Remove="Migrations\20200419154159_SupportTicket.cs" />
+    <Compile Remove="Migrations\20200419154159_SupportTicket.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\_ProductLayout.cshtml" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
+	</ItemGroup>
+	<ItemGroup>
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="wwwroot\StyleSheets\Everything.css" />
+	</ItemGroup>
+
+</Project>
