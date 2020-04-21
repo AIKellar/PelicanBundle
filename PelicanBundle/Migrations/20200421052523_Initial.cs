@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PelicanBundle.Migrations
 {
-    public partial class TeamDatabase : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,14 +55,13 @@ namespace PelicanBundle.Migrations
                     Shipped = table.Column<bool>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Line1 = table.Column<string>(nullable: false),
-                    Line2 = table.Column<string>(nullable: true),
-                    Line3 = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: false),
                     State = table.Column<string>(nullable: false),
-                    Zip = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(nullable: false),
-                    GiftWrap = table.Column<bool>(nullable: false),
-                    Email = table.Column<string>(nullable: true)
+                    Zip = table.Column<string>(nullable: false),
+                    CardNumber = table.Column<long>(nullable: false),
+                    SecurityCode = table.Column<int>(nullable: false),
+                    Expiration = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

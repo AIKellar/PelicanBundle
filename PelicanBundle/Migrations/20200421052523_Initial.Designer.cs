@@ -10,8 +10,8 @@ using PelicanBundle.Models;
 namespace PelicanBundle.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200420013339_TeamDatabase")]
-    partial class TeamDatabase
+    [Migration("20200421052523_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -248,33 +248,33 @@ namespace PelicanBundle.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<long?>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("bigint");
+
                     b.Property<string>("City")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Country")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Expiration")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("GiftWrap")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Line1")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Line2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Line3")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SecurityCode")
+                        .IsRequired()
+                        .HasColumnType("int");
 
                     b.Property<bool>("Shipped")
                         .HasColumnType("bit");
@@ -284,6 +284,7 @@ namespace PelicanBundle.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Zip")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderID");

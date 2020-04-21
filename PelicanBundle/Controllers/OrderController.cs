@@ -2,6 +2,11 @@
 using PelicanBundle.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using PelicanBundle.Models.ViewModels;
+
 namespace PelicanBundle.Controllers
 {
     public class OrderController : Controller
@@ -34,6 +39,10 @@ namespace PelicanBundle.Controllers
         [HttpPost]
         public IActionResult Checkout(Order order)
         {
+            if (order.Email != null)
+            {
+                TempData["Email"] = order.Email.ToString();
+            }
             if (cart.Lines.Count() == 0)
             {
                 ModelState.AddModelError("", "Sorry, your cart is empty!");
