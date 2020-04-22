@@ -16,10 +16,6 @@
     <Compile Remove="Migrations\20200419154159_SupportTicket.cs" />
     <Compile Remove="Migrations\20200419154159_SupportTicket.Designer.cs" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="Views\Shared\_ProductLayout.cshtml" />
-  </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />

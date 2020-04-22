@@ -10,7 +10,7 @@ using PelicanBundle.Models;
 namespace PelicanBundle.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200421052523_Initial")]
+    [Migration("20200422000244_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -316,6 +316,9 @@ namespace PelicanBundle.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("SoftwareIncluded")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductID");
 

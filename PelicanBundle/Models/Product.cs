@@ -24,6 +24,8 @@ namespace PelicanBundle.Models
         [Required(ErrorMessage = "Please specify a category")]
         public string Category { get; set; }
 
+        public string SoftwareIncluded { get; set; }
+
         public string Image { get; set; }
     }
 }

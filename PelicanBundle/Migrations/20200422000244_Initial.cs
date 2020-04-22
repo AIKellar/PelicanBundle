@@ -78,6 +78,7 @@ namespace PelicanBundle.Migrations
                     Description = table.Column<string>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     Category = table.Column<string>(nullable: false),
+                    SoftwareIncluded = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

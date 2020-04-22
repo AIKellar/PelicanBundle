@@ -1,25 +1,37 @@
 ﻿@model Product
-<div class="d-flex justify-content-center card m-3 rounded">
-    <div class="card-block m-2">
-        <div class="card-body">
-            <h3 class="card-title">
-                <strong>@Model.Name</strong>
-            </h3>
-            <p class="card-text lead">
-                @Model.Description
-            </p>
-            <span class="float-left bg-success text-white rounded m-2 p-1">
-                @Model.Price.ToString("c")
-            </span>
-            <form id="@Model.ProductID" asp-action="AddToCart"
-                  asp-controller="Cart" method="post" class="float-right m-2 p-1">
-                <input type="hidden" asp-for="ProductID" />
-                <input type="hidden" name="returnUrl"
-                       value="@ViewContext.HttpContext.Request.PathAndQuery()" />
-                <button type="submit" class="btn btn-info btn-sm float-right">
-                    Add To Cart
-                </button>
-            </form>
-        </div>
-    </div>
-</div>
+            <!--Card 1-->
+    
+            <div class="col-sm-6">
+                <div class="card card-cascade card-ecommerce wider shadow mb-5 ">
+                    <!--Card image-->
+                    <div class="view view-cascade overlay text-center">
+                        <img class="card-img-top" src="https://i.imgur.com/9VZGPJF.jpg" alt=""> <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!--Card Body-->
+                    <div class="card-body card-body-cascade text-center">
+                        <!--Card Title-->
+                        <h4 class="card-title"><strong><a href="">@Model.Name</a></strong></h4> <!-- Card Description-->
+                        <p class="card-text">@Model.Description </p>
+                        <p class="price">@Model.Price.ToString("c")</p> <!-- Card Rating-->
+                        <!--Card footer-->
+
+                        <div class="card-footer" style="background-color: #343a40!important;">
+                            <p>
+                                <form id="@Model.ProductID" asp-action="AddToCart"
+                                      asp-controller="Cart" method="post">
+                                    <input type="hidden" asp-for="ProductID" />
+                                    <input type="hidden" name="returnUrl"
+                                           value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                                    <button type="submit" class="btn btn-info btn-sm">
+                                        Add To Cart
+                                    </button>
+                                </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+
