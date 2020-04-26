@@ -315,33 +315,9 @@ namespace PelicanBundle.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("SoftwareIncluded")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ProductID");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("PelicanBundle.Models.SupportTicket", b =>
-                {
-                    b.Property<int>("TicketID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProblemDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ReasonCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TicketID");
-
-                    b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>

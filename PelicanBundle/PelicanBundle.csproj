@@ -5,6 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Admin\**" />
+    <Compile Remove="Views\Support\**" />
+    <Content Remove="Views\Admin\**" />
+    <Content Remove="Views\Support\**" />
+    <EmbeddedResource Remove="Views\Admin\**" />
+    <EmbeddedResource Remove="Views\Support\**" />
+    <None Remove="Views\Admin\**" />
+    <None Remove="Views\Support\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\AdminController.cs" />
+    <Compile Remove="Controllers\SupportController.cs" />
     <Compile Remove="Migrations\20200415144613_Initial.cs" />
     <Compile Remove="Migrations\20200415144613_Initial.Designer.cs" />
     <Compile Remove="Migrations\20200416134631_Orders.cs" />
@@ -15,6 +28,12 @@
     <Compile Remove="Migrations\20200416154146_Identity.Designer.cs" />
     <Compile Remove="Migrations\20200419154159_SupportTicket.cs" />
     <Compile Remove="Migrations\20200419154159_SupportTicket.Designer.cs" />
+    <Compile Remove="Migrations\20200422000244_Initial.cs" />
+    <Compile Remove="Migrations\20200422000244_Initial.Designer.cs" />
+    <Compile Remove="Models\EFSupportTicketRepository.cs" />
+    <Compile Remove="Models\FakeProductRepository.cs" />
+    <Compile Remove="Models\ISupportTicketRepository.cs" />
+    <Compile Remove="Models\SupportTicket.cs" />
   </ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
@@ -36,6 +55,9 @@
 		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
 	</ItemGroup>
 	<ItemGroup>
+	  <None Include="Views\Account\Create.cshtml" />
+	  <None Include="Views\Account\Index.cshtml" />
+	  <None Include="Views\Account\Login.cshtml" />
 	  <None Include="wwwroot\StyleSheets\Everything.css" />
 	</ItemGroup>
 

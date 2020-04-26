@@ -37,7 +37,6 @@ namespace PelicanBundle
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IOrderRepository, EFOrderRepository>();
-            services.AddTransient<ISupportTicketRepository, EFSupportTicketRepository>();
             services.AddIdentity<AppUser, IdentityRole<Guid>>()
              .AddEntityFrameworkStores<ApplicationDbContext>()
              .AddDefaultTokenProviders();
@@ -59,7 +58,7 @@ loggerFactory)
             app.UseSession();
             app.UseMvc(routes => {
 
-                routes.MapRoute(
+               routes.MapRoute(
            name: "default",
            template: "{controller=Home}/{action=Index}");
 

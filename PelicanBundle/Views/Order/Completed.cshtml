@@ -1,6 +1,16 @@
 ﻿@{ 
     Layout = "_CheckoutCompleted";
 }
-            <h2>Thanks!</h2>
-            <p>Thanks for placing your order.</p>
-            <p>We'll email your keys at @TempData["Email"].</p>
+    <div class="row">
+        <div class="jumbotron text-center mt-5">
+            <h1 class="display-3">Thank You!</h1>
+            <p class="lead"><strong>Please check your email at @TempData["Email"] for your keys</strong></p>
+            <hr>
+            <p>
+                Having trouble? <a asp-controller="Support" asp-action="Index">Contact Us</a>
+            </p>
+            <p class="lead d-flex justify-content-center">
+                <a class="btn btn-dark rounded-pill py-2 btn-block col-sm-5" href="/" role="button">Continue to homepage</a>
+            </p>
+        </div>
+    </div>

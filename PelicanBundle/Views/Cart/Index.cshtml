@@ -1,51 +1,87 @@
 ﻿
-<h2>Your cart</h2>
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Quantity</th>
-            <th>Item</th>
-            <th class="text-right">Price</th>
-            <th class="text-right">Subtotal</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var line in Model.Cart.Lines)
-        {
-            <tr>
-                <td class="text-center">@line.Quantity</td>
-                <td class="text-left">@line.Product.Name</td>
-                <td class="text-right">@line.Product.Price.ToString("c")</td>
-                <td class="text-right">
-                    @((line.Quantity * line.Product.Price).ToString("c"))
-                </td>
-                <td>
-                    <form asp-action="RemoveFromCart" method="post">
-                        <input type="hidden" name="ProductID"
-                               value="@line.Product.ProductID" />
-                        <input type="hidden" name="returnUrl"
-                               value="@Model.ReturnUrl" />
-                        <button type="submit" class="btn btn-sm btn-danger ">
-                       
-                            Remove
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" class="text-right">Total:</td>
-            <td class="text-right">
-                @Model.Cart.ComputeTotalValue().ToString("c")
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<div class="text-center">
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
-    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
-        Checkout
-    </a>
+<div class="pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+
+                <!-- Shopping cart table -->
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="p-2 px-3 text-uppercase">Product</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Price</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Quantity</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase">Remove</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var line in Model.Cart.Lines)
+                            {
+                                <tr>
+                                    <th scope="row" class="border-0">
+                                        <div class="p-2">
+                                            <img src="https://image.flaticon.com/icons/svg/185/185153.svg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                            <div class="ml-3 d-inline-block align-middle">
+                                                <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">@line.Product.Name</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: @line.Product.Category</span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td class="border-0 align-middle"><strong>@line.Product.Price.ToString("c")</strong></td>
+                                    <td class="border-0 align-middle"><strong>@line.Quantity</strong></td>
+                                    <td class="border-0 align-middle">
+                                        <form asp-action="RemoveFromCart" method="post">
+                                            <input type="hidden" name="ProductID"
+                                                   value="@line.Product.ProductID" />
+                                            <input type="hidden" name="returnUrl"
+                                                   value="@Model.ReturnUrl" />
+                                            <button type="submit" class="btn btn-sm btn-danger ">
+
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- End -->
+    </div>
+</div>
+
+<div class="row py-5 p-4 bg-white rounded shadow-sm d-flex justify-content-center mb-5">
+    <div class="col-lg-6">
+        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+        <div class="p-4">
+            <p class="font-italic mb-4">Fees and additional costs are calculated based on values you have entered.</p>
+            <ul class="list-unstyled mb-4">
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>@Model.Cart.ComputeTotalValue().ToString("c")</strong></li>
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Convenience Fee</strong><strong>$3.00</strong></li>
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+                <li class="d-flex justify-content-between py-3 border-bottom">
+                    <strong class="text-muted">Total</strong>
+                    <h5 class="font-weight-bold">
+                        @{
+                            decimal cartTotal = Model.Cart.ComputeTotalValue();
+                            decimal tax = 3.00m;
+                            decimal total = cartTotal + tax;
+                            string displayedTotal = total.ToString("C");
+                    } @displayedTotal
+                </h5>
+            </li>
+        </ul><a asp-action="Checkout" asp-controller="Order" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+        <a class="btn btn-dark rounded-pill py-2 btn-block" href="/Product/List">Continue shopping</a>
+        </div>
+    </div>
 </div>
